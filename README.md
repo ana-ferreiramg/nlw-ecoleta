@@ -39,7 +39,7 @@
     </li>
     <li>
         Use o comando:
-        <code>npm start</code>
+        <code>npm install</code>
     </li>
 </ol>
 <h2>🚩 Rodar aplicação</h2>
