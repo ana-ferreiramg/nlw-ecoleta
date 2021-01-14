@@ -2,7 +2,7 @@
 const sqlite3 = require('sqlite3').verbose();
 
 // criar o objeto que irá fazer operações no banco de dados
-const db = new sqlite3.Database("./src/database/database.db");
+const db = new sqlite3.Database('./src/database/database.db');
 
 // exportar o banco de dados
 module.exports = db;
@@ -67,11 +67,11 @@ module.exports = db;
 //     // });
 
 //     // 4 - deletar um dado da tabela
-    // db.run(`DELETE FROM places WHERE id = ?`, [6], function(err) {
-    //     if (err) {
-    //         console.log(err);
-    //     };
+// db.run(`DELETE FROM places WHERE id = ?`, [6], function(err) {
+//     if (err) {
+//         console.log(err);
+//     };
 
-    //     console.log("Registro deletado com sucesso.");
-    // });
+//     console.log("Registro deletado com sucesso.");
+// });
 // })

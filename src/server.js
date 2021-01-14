@@ -2,42 +2,42 @@ const express = require('express');
 const server = express();
 
 // pegar o banco de dados
-const db = require("./database/db");
+const db = require('./database/db');
 
 // configurar pasta public
-server.use(express.static("public"));
+server.use(express.static('public'));
 
 // habilitar o uso do req.body na aplicação
-server.use(express.urlencoded({extended: true}));
+server.use(express.urlencoded({ extended: true }));
 
 // utilizando template engine
 const nunjucks = require('nunjucks');
-nunjucks.configure("src/views", {
-    express: server,
-    noCache: true
+nunjucks.configure('src/views', {
+  express: server,
+  noCache: true,
 });
 
 // configurar caminhos da aplicação
 // página inicial
 // req = requisição/pedido
 // res = resposta
-server.get("/", (req, res) => {
-    return res.render("index.html");
+server.get('/', (req, res) => {
+  return res.render('index.html');
 });
 
-server.get("/create-point", (req, res) => {
-    // req.query = query strings da nossa url
-    // console.log(req.query);
+server.get('/create-point', (req, res) => {
+  // req.query = query strings da nossa url
+  // console.log(req.query);
 
-    return res.render("create-point.html");
+  return res.render('create-point.html');
 });
 
-server.post("/savepoint", (req, res) => {
-    // req.body = corpo do nosso formulário
-    // console.log(req.body);
+server.post('/savepoint', (req, res) => {
+  // req.body = corpo do nosso formulário
+  // console.log(req.body);
 
-    // inserir dados no banco de dados
-    const query = `
+  // inserir dados no banco de dados
+  const query = `
         INSERT INTO places (
             image,
             name,
@@ -49,52 +49,51 @@ server.post("/savepoint", (req, res) => {
         ) VALUES (?, ?, ?, ?, ?, ?, ?);
     `;
 
-    const values = [
-        req.body.image,
-        req.body.name,
-        req.body.address,
-        req.body.address2,
-        req.body.state,
-        req.body.city,
-        req.body.items
-    ];
+  const values = [
+    req.body.image,
+    req.body.name,
+    req.body.address,
+    req.body.address2,
+    req.body.state,
+    req.body.city,
+    req.body.items,
+  ];
 
-    function afterInsertData(err) {
-        if (err) {
-            console.log (err);
+  function afterInsertData(err) {
+    if (err) {
+      console.log(err);
 
-            return res.render("create-point.html", { saved: false});
-        };
+      return res.render('create-point.html', { saved: false });
+    }
 
-        console.log("Cadastrado com sucesso.");
-        console.log(this);
+    console.log('Cadastrado com sucesso.');
+    console.log(this);
 
-        return res.render("create-point.html", { saved: true });
-    };
+    return res.render('create-point.html', { saved: true });
+  }
 
-    db.run(query, values, afterInsertData);
-})
+  db.run(query, values, afterInsertData);
+});
 
+server.get('/search-results', (req, res) => {
+  const search = req.query.search;
 
-server.get("/search-results", (req, res) => {
-    const search = req.query.search;
+  if (search == '') {
+    // pesquisa vazia
+    return res.render('search-results.html', { total: 0 });
+  }
 
-    if (search == "") {
-        // pesquisa vazia
-        return res.render("search-results.html", { total: 0});
-    };
+  // pegar os dados do banco de dados
+  db.all(`SELECT * FROM places WHERE city LIKE '%${search}%'`, function (err, rows) {
+    if (err) {
+      console.log(err);
+    }
 
-    // pegar os dados do banco de dados
-    db.all(`SELECT * FROM places WHERE city LIKE '%${search}%'`, function(err, rows) {
-        if (err) {
-            console.log(err);
-        };
+    const total = rows.length;
 
-        const total = rows.length;
-
-        // mostrar a página HTML com os dados do banco de dados
-        return res.render("search-results.html", { places: rows, total: total});
-    });
+    // mostrar a página HTML com os dados do banco de dados
+    return res.render('search-results.html', { places: rows, total: total });
+  });
 });
 
 // ligar o servidor
