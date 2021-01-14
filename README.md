@@ -1,7 +1,7 @@
 <h1>Ecoleta ♻️</h1>
 <p>Site de criação e pesquisa de pontos de coleta de resíduos para reciclagem criado pela Rocketseat para a semana Next Level Week.</p>
 <div>
-    <img src="imgs_readme/img1.png" alt="Página inicial"/>
+    <img src="imgs_readme/img1.png" alt="Página inicial do Ecoleta"/>
     <img src="imgs_readme/img2.png" alt="Página para pesquisar pontos de coleta"/>
     <img src="imgs_readme/img3.png" alt="Página para cadastrar ponto de coleta"/>
 </div>
