@@ -1,17 +1,17 @@
 <h1>Ecoleta ♻️</h1>
 <p>Site de criação e pesquisa de pontos de coleta de resíduos para reciclagem criado pela Rocketseat para a semana Next Level Week.</p>
 <div>
-    <img src="imgs_readme/img1.png" alt="Página inicial do Ecoleta"/>
-    <img src="imgs_readme/img2.png" alt="Página para pesquisar pontos de coleta"/>
-    <img src="imgs_readme/img3.png" alt="Página para cadastrar ponto de coleta"/>
+    <img src=".github/img1.png" alt="Página inicial do Ecoleta"/>
+    <img src=".github/img2.png" alt="Página para pesquisar pontos de coleta"/>
+    <img src=".github/img3.png" alt="Página para cadastrar ponto de coleta"/>
 </div>
 <h2>🚀 Tecnologias</h2>
 <ul>
-    <li><img src="imgs_readme/nodejs.png" alt="Node.js Logo" width="60px" height="60px"/> Node.js</li>
-    <li><img src="imgs_readme/express.png" alt="Express Logo" width="60px" height="50px"/> Express</li>
-    <li><img src="imgs_readme/sqlite.png" alt="SQLite3 Logo" width="60px" height="37px"/> SQLite3</li>
-    <li><img src="imgs_readme/nunjucks.png" alt="Nunjucks Logo" width="60px" height="50px"/> Nunjucks</li>
-    <li><img src="imgs_readme/nodemon.png" alt="Nodemon Logo" width="60px" height="60px"/> Nodemon</li>
+    <li><img src=".github/nodejs.png" alt="Node.js Logo" width="60px" height="60px"/> Node.js</li>
+    <li><img src=".github/express.png" alt="Express Logo" width="60px" height="50px"/> Express</li>
+    <li><img src=".github/sqlite.png" alt="SQLite3 Logo" width="60px" height="37px"/> SQLite3</li>
+    <li><img src=".github/nunjucks.png" alt="Nunjucks Logo" width="60px" height="50px"/> Nunjucks</li>
+    <li><img src=".github/nodemon.png" alt="Nodemon Logo" width="60px" height="60px"/> Nodemon</li>
 </ul>
 
 <h2>🔧 Instalação</h2>
